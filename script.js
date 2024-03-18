@@ -13,13 +13,9 @@ checkBtn.addEventListener('click', function() {
   }
  
   const validRegex = /^1?[\s.-]?(?:\(\d{3}\)|\d{3})[\s.-]?\d{3}[\s.-]?\d{4}$/;
-  const validNum = [validRegex];
-  
-  const isValid = (msg) => validNum.some((regex) => regex.test(msg));
+  const isValid = validRegex.test(validateNum);
 
-  result.textContent = isValid(userInput.value)
-    ? `Valid US number: ${userInput.value}`
-    : `Invalid US number: ${userInput.value}`;
+  result.textContent = isValid ? `Valid US number: ${userInput.value}` : `Invalid US number: ${userInput.value}`;
   
   userInput.value = "";
   
